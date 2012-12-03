@@ -22,7 +22,7 @@ describe Tangerine::Base do
       end
 
       let(:embed_code) { 'target_embed_code' }
-      let(:mock_item) { {'embedCode' => Factory.next(:embed_code)} }
+      let(:mock_item) { {'embedCode' => FactoryGirl.generate(:embed_code)} }
 
       it 'returns the object associated with the given embed code' do
         result = TestBaseClass.find(embed_code)
