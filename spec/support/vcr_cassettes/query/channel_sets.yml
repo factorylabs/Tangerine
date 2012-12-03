@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.ooyala.com/partner/query?pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&contentType=MultiChannel&expires=1325437210&signature=VAJNytKwToVNKastKoAoWArxXky58qE2B4CDGMQhJXY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 03 Dec 2012 17:50:36 GMT
+      last-modified:
+      - Mon, 03 Dec 2012 17:50:36 GMT
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '15'
+      cache-control:
+      - private, max-age=0
+      set-cookie:
+      - ooyala-web-rails-session=BAh7CDoPdXBkYXRlZF9hdEl1OglUaW1lDXEsHMD7fkvKBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25UOhJjcmVhdGlvbl90aW1lQAY6D3Nlc3Npb25faWQiJWY3ZDA0NDk2YjY4NGIyYWI0ZTdjZmI5NDg1ZjM0ZWNh--9ed0a818a131ff82c3a158c1991681d809ba841c;
+        path=/; HttpOnly
+      vary:
+      - Accept-Encoding,User-Agent
+      x-ooyala-server-id:
+      - i-5a64663f
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: already expired
+    http_version: '1.1'
+  recorded_at: Sun, 01 Jan 2012 17:00:00 GMT
+recorded_with: VCR 2.3.0

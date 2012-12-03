@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.ooyala.com/partner/query?pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&embedCode=I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK%2CZ3Y3l3MTqHOLU6LMeTNbP2O91Oq5ADxm&fields=labels%2Cmetadata&expires=1325437210&signature=O%2B9kFOA4MbKGsw0N6mmUyrCiUApueJc04H5jWyHWMZM
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 03 Dec 2012 17:50:37 GMT
+      last-modified:
+      - Mon, 03 Dec 2012 17:50:37 GMT
+      content-type:
+      - text/html; charset=utf-8
+      content-length:
+      - '15'
+      cache-control:
+      - private, max-age=0
+      set-cookie:
+      - ooyala-web-rails-session=BAh7CDoPdXBkYXRlZF9hdEl1OglUaW1lDXEsHMBMJFTKBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25UOg9zZXNzaW9uX2lkIiU0MjFmNjQ2Nzc5ZTI0ZjlhNjI3YjI1N2FjOGExNjRjMDoSY3JlYXRpb25fdGltZUAG--0b8a4ba750c4367b289d910fd34dc6e76b4d2009;
+        path=/; HttpOnly
+      vary:
+      - Accept-Encoding,User-Agent
+      x-ooyala-server-id:
+      - i-f6f74396
+      connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: already expired
+    http_version: '1.1'
+  recorded_at: Sun, 01 Jan 2012 17:00:00 GMT
+recorded_with: VCR 2.3.0
