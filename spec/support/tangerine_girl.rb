@@ -7,7 +7,7 @@ end
 FactoryGirl.define do
   factory :channel_set, :class => Tangerine::ChannelSet do
     embed_code FactoryGirl.generate(:embed_code)
-    title  "an ode to channelsets"
+    name  "an ode to channelsets"
     description  nil
     flight_start_time  "1294087113"
     height  "3"
@@ -29,6 +29,6 @@ end
 FactoryGirl.define do
   factory :video, :class => Tangerine::Video do
     embed_code 'video embed code'
-    title ''
+    name ''
   end
 end

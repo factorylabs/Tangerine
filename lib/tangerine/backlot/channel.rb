@@ -1,7 +1,7 @@
 class Tangerine::Channel < Tangerine::Base
 
   attr_accessor :size,
-    :title,
+    :name,
     :thumbnail,
     :updated_at,
     :embed_code,
@@ -10,24 +10,22 @@ class Tangerine::Channel < Tangerine::Base
     :status,
     :uploaded_at
 
-  finder do
-    Tangerine.query('contentType' => 'Channel').parsed_response['list']['item']
+  def self.query_all
+    Tangerine.query('where' => "asset_type='channel'")['items']
   end
 
   def videos
-    channel = Tangerine::Backlot::API.get('/channels', 'mode' => 'list', 'channelEmbedCode' => embed_code)
-    items = channel.parsed_response['channel']['item']
-    items = Tangerine::Base.prepare_items(items)
-    embed_codes = items.collect { |item| item['embedCode'] }
-    Tangerine::Video.where(:embed_code => embed_codes)
+    embed_codes = lineup_for(embed_code)
+    Tangerine::Video.matching_embed_codes(embed_codes)
   end
 
   def as_json(options = {})
     # TODO: Figure out why rails needs this to be called so badly
     vids = videos
 
-    {:size => size,
-     :title => title,
+    {
+     :size => size,
+     :name => name,
      :thumbnail => thumbnail,
      :updated_at => updated_at,
      :embed_code => embed_code,
@@ -38,4 +36,7 @@ class Tangerine::Channel < Tangerine::Base
      :videos => vids
     }
   end
+
 end
+
+

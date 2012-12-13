@@ -1,9 +1,8 @@
 source "http://rubygems.org"
 
-gem "httparty"#, "~> 0.7.4"
-gem "activesupport"#, "~> 3.0.5"
+gem "activesupport", "~> 3.0.5"
 gem "json"#, ">= 1.4.6"
-gem "i18n"#, "~> 0.5.0"
+gem "i18n", "~> 0.5.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
@@ -17,4 +16,5 @@ group :development do
   gem "timecop"#, "0.3.5"
   gem "factory_girl"#, "1.3.3"
   gem "ruby-debug19"#, "0.10.4"
+  gem 'pry'
 end

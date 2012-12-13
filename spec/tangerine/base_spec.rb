@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec_helper'
 
 describe Tangerine::Base do
 
@@ -9,7 +9,7 @@ describe Tangerine::Base do
       before do
         items = []
         5.times { items << mock_item }
-        @target_item = {'embedCode' => embed_code}
+        @target_item = {'embed_code' => embed_code}
         items << @target_item
 
         klass = Class.new(Tangerine::Base) do
@@ -22,7 +22,7 @@ describe Tangerine::Base do
       end
 
       let(:embed_code) { 'target_embed_code' }
-      let(:mock_item) { {'embedCode' => FactoryGirl.generate(:embed_code)} }
+      let(:mock_item) { {'embed_code' => FactoryGirl.generate(:embed_code)} }
 
       it 'returns the object associated with the given embed code' do
         result = TestBaseClass.find(embed_code)
@@ -30,26 +30,5 @@ describe Tangerine::Base do
         result.embed_code.should == embed_code
       end
     end
-
-    describe '.prepare_items' do
-
-      context 'when given an array' do
-        let(:items) { %w(lorem ipsum dolor) }
-
-        it 'makes no changes, and just returns the items' do
-          subject.prepare_items(items).should == items
-        end
-      end
-
-      context 'when given a hash' do
-        let(:items) { {:lorem => 'ipsum'} }
-
-        it 'wraps the given hash in an array' do
-          subject.prepare_items(items).should == [items]
-        end
-      end
-
-    end
   end
-
 end

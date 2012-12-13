@@ -2,40 +2,57 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.ooyala.com/partner/channel_sets?pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&mode=list&channelSetEmbedCode=85aTdiMjoYR5K26Fp8TMgGtGQUCEC2Y1&expires=1325437210&signature=awYsnC3RpS4PN%2BXZGuFZTizUi5VAXTsAngkuuFwyoSg
+    uri: http://api.ooyala.com/v2/assets?where=asset_type%3D%27channel_set%27&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&expires=1641056500&signature=WthSoxNnk9toqLuBVhXTusFkNmZvu4CmjqBBU86AeIg
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
-      date:
-      - Mon, 03 Dec 2012 17:53:29 GMT
+      status:
+      - 200 OK
+      - 200 OK
       content-type:
-      - text/xml; charset=utf-8
-      content-length:
-      - '108'
+      - application/json
+      ooyala-server-id:
+      - i-1e80e064,i-74e0a20c
       cache-control:
       - no-cache
-      set-cookie:
-      - ooyala-web-rails-session=BAh7CDoPdXBkYXRlZF9hdEl1OglUaW1lDXEsHMCgutLVBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25UOg9zZXNzaW9uX2lkIiU4ZGUyZDdiZGY4YjkyMWE0YjZhMWY1OGMxMTg0ZWM2NzoSY3JlYXRpb25fdGltZUAG--1ee77987477213f9762ec56950f95621151fbd3a;
-        path=/; HttpOnly
-      vary:
-      - Accept-Encoding,User-Agent
-      x-ooyala-server-id:
-      - i-0f00f56e
+      x-ratelimit-credits:
+      - '283'
+      x-ratelimit-reset:
+      - '60'
+      ooyala-request-id:
+      - 43c5b936a28acba7d5997fcfb7849534
+      x-varnish-ip:
+      - 10.251.243.175
+      content-length:
+      - '1251'
+      accept-ranges:
+      - bytes
+      date:
+      - Fri, 07 Dec 2012 21:27:56 GMT
+      x-varnish:
+      - '422443347'
+      via:
+      - 1.1 varnish
       connection:
       - close
+      age:
+      - '0'
+      x-varnish-cache:
+      - MISS
     body:
       encoding: US-ASCII
-      string: ! '<?xml version="1.0" encoding="UTF-8"?>
-
-        <result code="400 Bad Request" message="Your request has expired."/>
-
-'
+      string: ! '{"items":[{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU","original_file_name":null,"duration":0,"created_at":"2011-04-29T16:05:35Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-29T16:53:50Z","name":"Expeditions
+        Channel Set","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"9zYmRjMjo9gKl9ZM8wvKlaJxdKm24qZR","original_file_name":null,"duration":0,"created_at":"2011-03-28T17:42:52Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-19T17:49:26Z","name":"BrandSite-Testing","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"85aTdiMjoYR5K26Fp8TMgGtGQUCEC2Y1","original_file_name":null,"duration":0,"created_at":"2011-03-08T16:54:22Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-05-02T19:00:15Z","name":"Brand
+        Site Video Gallery","external_id":null}]}'
     http_version: '1.1'
-  recorded_at: Sun, 01 Jan 2012 17:00:00 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
