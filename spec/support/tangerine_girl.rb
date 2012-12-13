@@ -1,26 +1,34 @@
-Factory.sequence :embed_code do |n|
-  "embed_code_#{n}"
+FactoryGirl.define do
+  sequence :embed_code do |n|
+    "embed_code_#{n}"
+  end
 end
 
-Factory.define :channel_set, :class => Tangerine::ChannelSet do |cs|
-  cs.embed_code Factory.next(:embed_code)
-  cs.title  "an ode to channelsets"
-  cs.description  nil
-  cs.flight_start_time  "1294087113"
-  cs.height  "3"
-  cs.size  nil
-  cs.stat  nil
-  cs.status  "live"
-  cs.updated_at  "1294087113"
-  cs.uploaded_at  "1294087113"
-  cs.width  "4"
+FactoryGirl.define do
+  factory :channel_set, :class => Tangerine::ChannelSet do
+    embed_code FactoryGirl.generate(:embed_code)
+    name  "an ode to channelsets"
+    description  nil
+    flight_start_time  "1294087113"
+    height  "3"
+    size  nil
+    stat  nil
+    status  "live"
+    updated_at  "1294087113"
+    uploaded_at  "1294087113"
+    width  "4"
+  end
 end
 
-Factory.define :channel, :class => Tangerine::Channel do |ch|
-  ch.embed_code 'lorem ipsum embed'
+FactoryGirl.define do
+  factory :channel, :class => Tangerine::Channel do
+    embed_code 'lorem ipsum embed'
+  end
 end
 
-Factory.define :video, :class => Tangerine::Video do |v|
-  v.embed_code 'video embed code'
-  v.title ''
+FactoryGirl.define do
+  factory :video, :class => Tangerine::Video do
+    embed_code 'video embed code'
+    name ''
+  end
 end

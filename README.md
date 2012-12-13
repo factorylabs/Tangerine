@@ -26,64 +26,6 @@ You can find your Partner and Secret codes under the Developers area of the Back
 
   tangerine_client.query(:status => 'live')
 
-* TODO: Make certain queries a bit more like a DSL (eg: tangerine_client.live instead of tangerine_client.query(:status => 'live'))
-
-[Ooyala Backlot Query API](http://www.ooyala.com/support/docs/backlot_api#query)
-
-### Thumbnails
-
-  Feature pending.
-
-[Ooyala Backlot Thumbnail Query API](http://www.ooyala.com/support/docs/backlot_api#thumbnail)
-
-### Attribute Updates
-
-  Feature pending.
-
-[Ooyala Backlot Attribute Update API](http://www.ooyala.com/support/docs/backlot_api#attribute)
-
-### Custom Metadata
-
-  Feature pending.
-
-[Ooyala Custom Metadata API](http://www.ooyala.com/support/docs/backlot_api#metadata)
-
-### Label Management
-
-  Feature pending.
-
-[Ooyala Label Management API](http://www.ooyala.com/support/docs/backlot_api#label)
-
-### Player Management
-
-  Feature pending.
-
-[Ooyala Player Management API](http://www.ooyala.com/support/docs/backlot_api#player)
-
-### Channel
-
-  Feature pending.
-
-[Ooyala Channel API](http://www.ooyala.com/support/docs/backlot_api#channel)
-
-### Channel Set
-
-  Feature pending.
-
-[Ooyala Channel Set API](http://www.ooyala.com/support/docs/backlot_api#channel_set)
-
-### Dynamic Channel
-
-  Feature pending.
-
-[Ooyala Dynamic Channel API](http://www.ooyala.com/support/docs/backlot_api#dynamic_channel)
-
-### High Performance
-
-  Feature pending.
-
-[Ooyala High Performance API](http://www.ooyala.com/support/docs/backlot_api#high_performance)
-
 ## Contribute
 
 The gem has an .rvmrc file, and is currently associated with ree 1.8.7 with its own [RVM](http://rvm.beginrescueend.com/) gemset.

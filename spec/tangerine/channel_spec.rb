@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require 'spec_helper'
 
 describe Tangerine::Channel do
   authenticate!
@@ -7,7 +7,7 @@ describe Tangerine::Channel do
 
     describe '#videos' do
       let(:channel_set) do
-        Factory.build(:channel_set)
+        FactoryGirl.build(:channel_set)
       end
 
       let(:channel) do
@@ -16,8 +16,8 @@ describe Tangerine::Channel do
 
       let(:videos) do
         [
-          Factory.build(:video, :embed_code => embed_codes.first, :title => title),
-          Factory.build(:video, :embed_code => embed_codes[1])
+          FactoryGirl.build(:video, :embed_code => embed_codes.first, :title => title),
+          FactoryGirl.build(:video, :embed_code => embed_codes[1])
         ]
       end
 

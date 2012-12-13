@@ -1,1 +1,2 @@
-rvm ree@tangerine
+rvm 1.9.3@tangerine
+echo "Using 1.9.3@tangerine"

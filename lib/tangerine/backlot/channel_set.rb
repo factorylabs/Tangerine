@@ -1,20 +1,19 @@
 class Tangerine::ChannelSet < Tangerine::Base
 
   attr_accessor :embed_code,
-                :title,
-                :description,
-                :status,
-                :uploaded_at,
-                :size,
-                :updated_at,
-                :flight_start_time,
-                :width,
-                :height,
-                :stat
+    :name,
+    :description,
+    :status,
+    :uploaded_at,
+    :size,
+    :updated_at,
+    :flight_start_time,
+    :width,
+    :height,
+    :stat
 
-  finder do
-    response = Tangerine.query('contentType' => 'MultiChannel')
-    response.parsed_response['list']['item']
+  def self.query_all
+    Tangerine.query('where' => "asset_type='channel_set'")['items']
   end
 
   def as_json(options = {})
@@ -26,11 +25,7 @@ class Tangerine::ChannelSet < Tangerine::Base
   end
 
   def channels
-    result = Tangerine::Backlot::API.get('/channel_sets', 'mode' => 'list', 'channelSetEmbedCode' => embed_code)
-    items = result.parsed_response['channelSet']['channel']
-    items = Tangerine::Base.prepare_items(items)
-    items.collect {|item| Tangerine::Channel.new(item) }
+    embed_codes = lineup_for(embed_code)
+    Tangerine::Channel.matching_embed_codes(embed_codes)
   end
-
 end
-

@@ -1,47 +1,59 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: http://api.ooyala.com:80/partner/query?pcode=lsNTrbQBqCQbH-VA6ALCshAHLWrV&expires=1325437210&signature=VAJNytKwToVNKastKoAoWArxXky58qE2B4CDGMQhJXY&contentType=MultiChannel
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.ooyala.com/v2/assets?where=asset_type%3D%27channel_set%27&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&expires=1641056500&signature=WthSoxNnk9toqLuBVhXTusFkNmZvu4CmjqBBU86AeIg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      last-modified: 
-      - Wed, 09 Mar 2011 22:17:59 GMT
-      content-type: 
-      - application/xml; charset=utf-8
-      date: 
-      - Wed, 09 Mar 2011 22:17:58 GMT
-      content-length: 
-      - "2336"
-      set-cookie: 
-      - ooyala-web-rails-session=BAh7CDoPdXBkYXRlZF9hdEl1OglUaW1lDTbJG4Bt76pHBjofQG1hcnNoYWxfd2l0aF91dGNfY29lcmNpb25UOg9zZXNzaW9uX2lkIiUzMzcyMTM4MjM4NTQyZTM0NTIxMTJmMjQ3NWU2YTZiOToSY3JlYXRpb25fdGltZUAG--ac51682d0ac32ee8a4f963e2dc7803e400ce56ad; path=/; HttpOnly
-      vary: 
-      - Accept-Encoding,User-Agent
-      cache-control: 
-      - private, max-age=0
-    body: |
-      <?xml version="1.0" encoding="UTF-8"?>
-      <list totalResults="5" size="5" pageID="0" statistics-as-of_text="Wed Mar 09 21:40:01 UTC 2011" limit="500" statistics-as-of="1299706801">
-        <% channel_sets.each do |channel_set| %>
-        <item>
-          <embedCode><%= channel_set.embed_code %></embedCode>
-          <title><%= channel_set.title %></title>
-          <description><%= channel_set.description %></description>
-          <status><%= channel_set.status %></status>
-          <content_type>MultiChannel</content_type>
-          <uploadedAt><%= channel_set.uploaded_at %></uploadedAt>
-          <size><%= channel_set.size %></size>
-          <updatedAt><%= channel_set.updated_at %></updatedAt>
-          <flightStartTime><%= channel_set.flight_start_time %></flightStartTime>
-          <width><%= channel_set.width %></width>
-          <height><%= channel_set.height %></height>
-          <stat><%= channel_set.stat %></stat>
-        </item>
-        <% end %>
-
-    http_version: "1.1"
+    headers:
+      status:
+      - 200 OK
+      - 200 OK
+      content-type:
+      - application/json
+      ooyala-server-id:
+      - i-83b257fb,i-74e0a20c
+      cache-control:
+      - no-cache
+      x-ratelimit-credits:
+      - '288'
+      x-ratelimit-reset:
+      - '60'
+      ooyala-request-id:
+      - e77d6678321c137c394dc7f7bdb8a5be
+      x-varnish-ip:
+      - 10.251.243.175
+      content-length:
+      - '1251'
+      accept-ranges:
+      - bytes
+      date:
+      - Fri, 07 Dec 2012 21:04:09 GMT
+      x-varnish:
+      - '422387622'
+      via:
+      - 1.1 varnish
+      connection:
+      - close
+      age:
+      - '0'
+      x-varnish-cache:
+      - MISS
+    body:
+      encoding: US-ASCII
+      string: ! '{"items":[{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU","original_file_name":null,"duration":0,"created_at":"2011-04-29T16:05:35Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-29T16:53:50Z","name":"Expeditions
+        Channel Set","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"9zYmRjMjo9gKl9ZM8wvKlaJxdKm24qZR","original_file_name":null,"duration":0,"created_at":"2011-03-28T17:42:52Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-19T17:49:26Z","name":"BrandSite-Testing","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"85aTdiMjoYR5K26Fp8TMgGtGQUCEC2Y1","original_file_name":null,"duration":0,"created_at":"2011-03-08T16:54:22Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-05-02T19:00:15Z","name":"Brand
+        Site Video Gallery","external_id":null}]}'
+    http_version: '1.1'
+  recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
+recorded_with: VCR 2.3.0

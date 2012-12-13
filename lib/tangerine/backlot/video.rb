@@ -1,7 +1,8 @@
 class Tangerine::Video < Tangerine::Base
+  LIMIT = 400 # Ooyala limits to 100 by default
 
   attr_accessor :size,
-    :title,
+    :name,
     :thumbnail,
     :content,
     :updated_at,
@@ -17,13 +18,15 @@ class Tangerine::Video < Tangerine::Base
     :metadata,
     :stat
 
-  finder do
-    Tangerine.query('contentType' => 'Video').parsed_response['list']['item']
+  def self.query_all
+    params = default_params('where' => "asset_type='video'", 'limit' => LIMIT)
+
+    Tangerine.query( params )['items']
   end
 
-  # def self.all
-    # Tangerine.query('contentType' => 'Video')
-  # end
+  def self.query_for(embed_code)
+    Tangerine::Backlog::API.get("/v2/assets/#{embed_code}", default_params)
+  end
 
   def initialize(options={})
     @options = options
@@ -35,35 +38,21 @@ class Tangerine::Video < Tangerine::Base
     super(options)
   end
 
-  def player(options={})
-    options.merge!(:embed_code => embed_code, :width => width, :height => height)
-    Tangerine::Player.new(options)
+  def self.matching_embed_codes(embed_codes, params = {})
+    params = { "include" => "metadata,labels", "status" => "'live'" }.merge(params)
+    videos = super(embed_codes, params)
+
+    order_videos!(videos, embed_codes)
   end
 
-  def self.where(options)
-    # FYI
-    # Adding 'status' => 'live' to the query string does not work!
-    embed_codes = options[:embed_code].join(',')
-    result      = Tangerine.query('embedCode' => embed_codes, 'fields' => 'labels,metadata')
-    items       = result.parsed_response['list']['item']
-    items       = Tangerine::Base.prepare_items(items)
-    videos      = items.collect { |item| Tangerine::Video.new(item) }
-    videos      = videos.reject { |video| video.status != 'live' }
-
-    Tangerine::Video.order_videos!(videos, options[:embed_code])
-  end
-  
   def self.order_videos!(videos, embed_codes)
-    ordered = []
-    embed_codes.each do |code|
-      ordered << videos.select { |video| video.embed_code == code }
-    end
-    ordered.flatten
+    embed_codes.map { |code| videos.select { |video| video.embed_code == code }.first }
   end
 
   def as_json(options = {})
-    {:size => size,
-     :title => title,
+    {
+     :size => size,
+     :name => name,
      :thumbnail => thumbnail,
      :content => content,
      :updated_at => updated_at,
@@ -84,20 +73,18 @@ class Tangerine::Video < Tangerine::Base
   protected
 
   def add_labels
-    return unless @options['labels']
-    self.labels = Tangerine::Base.prepare_items(@options['labels']['label'])
+    self.labels = @options.fetch('labels', [])
   end
 
   def add_metadata
     return unless @options['metadata']
 
     self.metadata = {}
-    meta_data = @options['metadata']['metadataItem']
-    items = Tangerine::Base.prepare_items(meta_data)
-    items.each do |meta_item|
-      meta_key = meta_item['name'].downcase.gsub(' ', '_').to_sym
-      self.metadata[meta_key] = meta_item['value']
+    meta_data = @options['metadata']
+
+    meta_data.each do |key,value|
+      key = key.downcase.gsub(' ', '_').to_sym
+      self.metadata[key] = value
     end
   end
 end
-
