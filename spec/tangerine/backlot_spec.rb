@@ -6,11 +6,9 @@ describe Tangerine::Backlot do
     describe Tangerine::Backlot::API do
       subject { Tangerine::Backlot::API }
 
-      its(:authenticated?) { should be_false }
-
       describe '.get' do
         it 'complains about not yet being authenticated' do
-          expect{ subject.get('xxxxx') }.to raise_error(Tangerine::Backlot::NotAuthenticatedError)
+          expect{ subject.get('xxxxx') }.to raise_error(Tangerine::NotAuthenticatedError)
         end
       end
     end
@@ -22,8 +20,6 @@ describe Tangerine::Backlot do
     describe Tangerine::Backlot::API do
       context 'class methods' do
         subject { Tangerine::Backlot::API }
-
-        its(:authenticated?) { should be_true }
 
         describe '.get' do
 

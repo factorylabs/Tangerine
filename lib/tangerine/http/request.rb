@@ -1,11 +1,14 @@
 module Tangerine
   module HTTP
     class Request
-      attr_accessor :params, :authenticator
+      attr_accessor :params,
+        :url_generator,
+        :responder,
+        :http
 
       def initialize(params)
-        @params        = params
-        @authenticator = Tangerine::Authenticator.instance
+        @params = params
+        yield if block_given?
       end
 
       def self.get(params)
@@ -13,25 +16,16 @@ module Tangerine
       end
 
       def perform_request
-        Response.new(response).parse
+        responder.parse(response)
       end
+
+      private
 
       def response
-        Net::HTTP.get( URI.parse(url) )
+        url = url_generator.generate(@params)
+        http.fetch(url)
       end
 
-      def url
-        @url ||= [base_uri, format_query_params].join('?')
-      end
-
-      def base_uri
-        request_path = @params['request_path']
-        "http://api.ooyala.com#{request_path}"
-      end
-
-      def format_query_params
-        QueryFormatter.new(self).format
-      end
     end
   end
 end

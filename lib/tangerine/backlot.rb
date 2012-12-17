@@ -14,7 +14,11 @@ module Tangerine
 
         params['request_path'] = request_path
 
-        Tangerine::HTTP::Request.get(params)
+        Tangerine::HTTP::Request.get(params) do |request|
+          request.http          = Tangerine::HTTP::Provider
+          request.responder     = Tangerine::HTTP::Response
+          request.url_generator = Tangerine::HTTP::UrlGenerator
+        end
       end
     end
   end

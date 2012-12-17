@@ -13,8 +13,7 @@ describe Tangerine::Base do
         items << @target_item
 
         klass = Class.new(Tangerine::Base) do
-          attr_accessor :embed_code
-          finder do
+          def query_for(embed_code)
             items
           end
         end
@@ -25,9 +24,10 @@ describe Tangerine::Base do
       let(:mock_item) { {'embed_code' => FactoryGirl.generate(:embed_code)} }
 
       it 'returns the object associated with the given embed code' do
+        Tangerine::Base.stub(:query_for).and_return(@target_item)
+
         result = TestBaseClass.find(embed_code)
         result.class.should == TestBaseClass
-        result.embed_code.should == embed_code
       end
     end
   end
