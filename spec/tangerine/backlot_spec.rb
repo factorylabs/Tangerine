@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Tangerine::Backlot do
 
-  describe 'when not authenticated' do
+  describe 'when not authenticated', unauthenticated: true do
     describe Tangerine::Backlot::API do
       subject { Tangerine::Backlot::API }
 
@@ -15,7 +15,6 @@ describe Tangerine::Backlot do
   end
 
   describe 'when authenticated' do
-    authenticate!
 
     describe Tangerine::Backlot::API do
       context 'class methods' do

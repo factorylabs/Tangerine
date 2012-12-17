@@ -25,7 +25,7 @@ class Tangerine::Video < Tangerine::Base
   end
 
   def self.query_for(embed_code)
-    Tangerine::Backlog::API.get("/v2/assets/#{embed_code}", default_params)
+    Tangerine::Backlot::API.get("/v2/assets/#{embed_code}", default_params)
   end
 
   def initialize(options={})
@@ -38,8 +38,12 @@ class Tangerine::Video < Tangerine::Base
     super(options)
   end
 
+  def self.default_params
+    { "include" => "metadata,labels", "status" => "'live'" }
+  end
+
   def self.matching_embed_codes(embed_codes, params = {})
-    params = { "include" => "metadata,labels", "status" => "'live'" }.merge(params)
+    params = default_params.merge(params)
     videos = super(embed_codes, params)
 
     order_videos!(videos, embed_codes)

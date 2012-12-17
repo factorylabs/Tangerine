@@ -22,9 +22,11 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:each) do
-    # Publicly-available Ooyala Provider account creds for testing purposes
-    credentials = {:api_key => 'lsNTrbQBqCQbH-VA6ALCshAHLWrV', :secret => 'hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1'}
-    Tangerine::Backlot::API.authenticate! credentials
+
+    unless example.metadata[:unauthenticated]
+      # Publicly-available Ooyala Provider account creds for testing purposes
+      credentials = {:api_key => 'lsNTrbQBqCQbH-VA6ALCshAHLWrV', :secret => 'hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1'}
+      Tangerine::Backlot::API.authenticate! credentials
+    end
   end
 end
-

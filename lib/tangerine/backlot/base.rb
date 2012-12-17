@@ -26,13 +26,9 @@ class Tangerine::Base
     query_all.collect { |item| new(item) }
   end
 
-  def self.new_up(items)
-    items.map { |item| new(item) }
-  end
-
   def self.matching_embed_codes(embed_codes, params = {})
     items = Tangerine::HTTP::MatchingEmbedCodeQuery.for(embed_codes, params)
-    new_up(items)
+    items.map { |item| new(item) }
   end
 
   def lineup_for(embed_code)

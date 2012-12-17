@@ -8,11 +8,12 @@ module Tangerine
 
       def initialize(params)
         @params = params
-        yield if block_given?
       end
 
-      def self.get(params)
-        new(params).perform_request
+      def self.get(params, &block)
+        instance = new(params)
+        yield instance if block_given?
+        instance.perform_request
       end
 
       def perform_request
