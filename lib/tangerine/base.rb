@@ -1,4 +1,5 @@
 class Tangerine::Base
+  LIMIT = 400 # Ooyala limits to 100 by default
 
   def initialize(options = {})
     options.each do |k,v|
@@ -9,25 +10,24 @@ class Tangerine::Base
     end
   end
 
+  def self.default_params
+    { "include" => "metadata,labels", "status" => "'live'", 'limit' => LIMIT }
+  end
+
   def self.find(embed_code)
     result = Tangerine::Backlot::API.get("/v2/assets/#{embed_code}", default_params)
     new(result)
   end
 
-  def self.all(options = {})
-    merged_params = options.merge('where' => "asset_type='#{asset_type}'")
+  def self.all
+    merged_params = default_params.merge('where' => "asset_type='#{asset_type}'")
     results = Tangerine.query(merged_params)
 
     results['items'].collect { |item| new(item) }
   end
 
-  def self.matching_embed_codes(embed_codes, params = {})
-    items = Tangerine::HTTP::MatchingEmbedCodeQuery.for(embed_codes, params)
-    items.map { |item| new(item) }
-  end
-
-  def lineup_for(embed_code)
-    self.class.query_for("#{embed_code}/lineup")
+  def children
+    Tangerine::Lineup.children_for(self)
   end
 
   def title

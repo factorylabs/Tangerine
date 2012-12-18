@@ -11,6 +11,7 @@ require 'active_support/inflector'
 require 'active_support/hash_with_indifferent_access'
 require 'active_support/core_ext'
 
+require_relative 'tangerine/backlot'
 require_relative 'tangerine/authenticator'
 
 require_relative 'tangerine/http/provider'
@@ -25,6 +26,7 @@ require_relative 'tangerine/base'
 require_relative 'tangerine/channel'
 require_relative 'tangerine/channel_set'
 require_relative 'tangerine/video'
+require_relative 'tangerine/lineup'
 
 # require '/Users/craig.williams/Documents/Factory/Tangerine/lib/tangerine'
 # credentials = {

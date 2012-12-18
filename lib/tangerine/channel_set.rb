@@ -16,6 +16,14 @@ class Tangerine::ChannelSet < Tangerine::Base
     'channel_set'
   end
 
+  def child_class
+    Tangerine::Channel
+  end
+
+  def channels
+    children
+  end
+
   def as_json(options = {})
     {:channels => channels}
   end
@@ -24,9 +32,4 @@ class Tangerine::ChannelSet < Tangerine::Base
     {:channels => channels}.to_json
   end
 
-  def channels
-    embed_codes = Lineup.child_embed_codes_for(self)
-    Tangerine::Channel.matching_embed_codes(embed_codes)
-    # Lineup.children_for(self)
-  end
 end

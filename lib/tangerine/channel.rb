@@ -14,9 +14,12 @@ class Tangerine::Channel < Tangerine::Base
     'channel'
   end
 
+  def child_class
+    Tangerine::Video
+  end
+
   def videos
-    embed_codes = lineup_for(embed_code)
-    Tangerine::Video.matching_embed_codes(embed_codes)
+    children
   end
 
   def as_json(options = {})

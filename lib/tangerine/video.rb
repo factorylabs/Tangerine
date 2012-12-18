@@ -1,5 +1,4 @@
 class Tangerine::Video < Tangerine::Base
-  # LIMIT = 400 # Ooyala limits to 100 by default
 
   attr_accessor :size,
     :name,
@@ -30,21 +29,6 @@ class Tangerine::Video < Tangerine::Base
 
   def self.asset_type
     'video'
-  end
-
-  def self.query_all
-    super "include" => "metadata,labels", "status" => "'live'", 'limit' => LIMIT
-  end
-
-  def self.matching_embed_codes(embed_codes, params = {})
-    params = default_params.merge(params)
-    videos = super(embed_codes, params)
-
-    order_videos!(videos, embed_codes)
-  end
-
-  def self.order_videos!(videos, embed_codes)
-    embed_codes.map { |code| videos.select { |video| video.embed_code == code }.first }
   end
 
   def as_json(options = {})

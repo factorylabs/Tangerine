@@ -18,6 +18,8 @@ module Tangerine
           request.http          = Tangerine::HTTP::Provider
           request.responder     = Tangerine::HTTP::Response
           request.url_generator = Tangerine::HTTP::UrlGenerator
+
+          request.perform!
         end
       end
     end

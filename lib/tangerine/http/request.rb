@@ -13,10 +13,9 @@ module Tangerine
       def self.get(params, &block)
         instance = new(params)
         yield instance if block_given?
-        instance.perform_request
       end
 
-      def perform_request
+      def perform!
         responder.parse(response)
       end
 
