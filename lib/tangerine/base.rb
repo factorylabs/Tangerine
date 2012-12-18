@@ -31,12 +31,22 @@ class Tangerine::Base
   end
 
   def title
-    warn "[DEPRECATION] `title` is deprecated.  Please use `name` instead."
+    warn "#{self.class.name} `#{__method__}` is deprecated.  Please use `name` instead."
     name
   end
 
   def title=(value)
-    warn "[DEPRECATION] `title=` is deprecated.  Please use `name=` instead."
+    warn "#{self.class.name} `#{__method__}` is deprecated.  Please use `name=` instead."
     self.name = value
+  end
+
+  def thumbnail
+    warn "#{self.class.name} `#{__method__}` is deprecated.  Please use `preview_image_url` instead."
+    preview_image_url
+  end
+
+  def thumbnail=(value)
+    warn "#{self.class.name} `#{__method__}` is deprecated.  Please use `preview_image_url=` instead."
+    self.preview_image_url = value
   end
 end

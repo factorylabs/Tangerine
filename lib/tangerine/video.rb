@@ -2,7 +2,7 @@ class Tangerine::Video < Tangerine::Base
 
   attr_accessor :size,
     :name,
-    :thumbnail,
+    :preview_image_url,
     :content,
     :updated_at,
     :embed_code,

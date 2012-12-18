@@ -6,14 +6,14 @@ module Tangerine
         :responder,
         :http
 
-      def initialize(params)
-        @params = params
+      def self.perform!(params)
+        request = new(params)
+        yield request if block_given?
+        request.perform!
       end
 
-      def self.get(params, &block)
-        instance = new(params)
-        yield instance if block_given?
-        instance
+      def initialize(params)
+        @params = params
       end
 
       def perform!

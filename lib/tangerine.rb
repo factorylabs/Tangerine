@@ -12,6 +12,7 @@ require 'active_support/hash_with_indifferent_access'
 require 'active_support/core_ext'
 
 require_relative 'tangerine/backlot'
+require_relative 'tangerine/version'
 require_relative 'tangerine/authenticator'
 
 require_relative 'tangerine/http/provider'
