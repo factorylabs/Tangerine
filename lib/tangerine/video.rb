@@ -35,7 +35,7 @@ class Tangerine::Video < Tangerine::Base
     {
      :size => size,
      :name => name,
-     :thumbnail => thumbnail,
+     :preview_image_url => preview_image_url,
      :content => content,
      :updated_at => updated_at,
      :embed_code => embed_code,
