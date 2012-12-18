@@ -13,6 +13,7 @@ module Tangerine
       def self.get(params, &block)
         instance = new(params)
         yield instance if block_given?
+        instance
       end
 
       def perform!
