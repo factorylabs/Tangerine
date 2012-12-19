@@ -1791,4 +1791,100 @@ http_interactions:
         SU14M2EzNk1uIn0=
     http_version: '1.1'
   recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
+- request:
+    method: get
+    uri: http://api.ooyala.com/v2/assets/I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK?include=metadata%2Clabels&status=%27live%27&limit=400&expires=1641056410&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&signature=3wH%2F8W2j65F6XGUshxMcrGtkEVjDisOH85iDRUJLFAk
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "c3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      - !binary |-
+        MjAwIE9L
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbg==
+      !binary "b295YWxhLXNlcnZlci1pZA==":
+      - !binary |-
+        aS0zMWY3MDk1ZixpLTkwZTNhMWU4
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "eC1yYXRlbGltaXQtY3JlZGl0cw==":
+      - !binary |-
+        MTY1
+      !binary "eC1yYXRlbGltaXQtcmVzZXQ=":
+      - !binary |-
+        NjA=
+      !binary "b295YWxhLXJlcXVlc3QtaWQ=":
+      - !binary |-
+        NTFkNGJlMmM2NDM5ZGU5NWExMzk0ZjY3ZDg1NjJjOWQ=
+      !binary "eC12YXJuaXNoLWlw":
+      - !binary |-
+        MTAuMjguOTcuMTU4
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        MTAzNA==
+      !binary "YWNjZXB0LXJhbmdlcw==":
+      - !binary |-
+        Ynl0ZXM=
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        V2VkLCAxOSBEZWMgMjAxMiAyMjoxNTozOSBHTVQ=
+      !binary "eC12YXJuaXNo":
+      - !binary |-
+        MjA5Nzk5NDU0Mg==
+      !binary "dmlh":
+      - !binary |-
+        MS4xIHZhcm5pc2g=
+      !binary "Y29ubmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "YWdl":
+      - !binary |-
+        MA==
+      !binary "eC12YXJuaXNoLWNhY2hl":
+      - !binary |-
+        TUlTUw==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJzdGF0dXMiOiJsaXZlIiwiZXh0ZXJuYWxfaWQiOm51bGwsImhvc3RlZF9h
+        dCI6bnVsbCwiZGVzY3JpcHRpb24iOiJJbnRyb2R1Y2luZyB0aGUgbmV3ZXN0
+        IG1lbWJlcnMgb2YgVGhlIE5vcnRoIEZhY2XCqSBzbm93c3BvcnRzIHRlYW0g
+        LSBLYWl0bHluIEZhcnJpbmd0b24sIE5pY2sgTWFydGluaSwgTWlrZSBSaWRk
+        bGUsIGFuZCBUb20gV2FsbGlzY2guIiwiYWRfc2V0X2lkIjpudWxsLCJ0aW1l
+        X3Jlc3RyaWN0aW9ucyI6bnVsbCwiYXNzZXRfdHlwZSI6InZpZGVvIiwiZW1i
+        ZWRfY29kZSI6IkkzTUhCMk1UcVA1enZBOGRZdnpidkdsUEpkZzdEeFJLIiwi
+        b3JpZ2luYWxfZmlsZV9uYW1lIjoiVE5GX01hcnRpbmlfTkVXX1RFQU0tU3Bv
+        bnNvci5tb3YiLCJwcmV2aWV3X2ltYWdlX3VybCI6Imh0dHA6Ly9jZG4udmlk
+        ZW9zLnRoZW5vcnRoZmFjZS5jb20vSTNNSEIyTVRxUDV6dkE4ZFl2emJ2R2xQ
+        SmRnN0R4UksvcHJvbW8xMjc0MzYxNjMiLCJkdXJhdGlvbiI6MjE4OTY4LCJj
+        cmVhdGVkX2F0IjoiMjAxMC0xMi0wOVQwMjowMjo0N1oiLCJsYWJlbHMiOlt7
+        InBhcmVudF9pZCI6bnVsbCwiZnVsbF9uYW1lIjoiL1lvdVR1YmUiLCJuYW1l
+        IjoiWW91VHViZSIsImlkIjoiMGUyMDUwYzVkMzY4NGRlYjgzZTY4MTlkMDM4
+        ODg4MDUifV0sIm5hbWUiOiJUaGUgTm9ydGggRmFjZcKuOiBJbnRyb2R1Y2lu
+        ZyBLYWl0bHluIEZhcnJpbmd0b24sIE5pY2sgTWFydGluaSwgTWlrZSBSaWRk
+        bGUgJiBUb20gV2FsbGlzY2giLCJwdWJsaXNoaW5nX3J1bGVfaWQiOiJjZjUy
+        Mzc5MDBiZGQ0MDAzOGNkYjJmM2ZhOTc3MDU2MiIsInVwZGF0ZWRfYXQiOiIy
+        MDExLTA0LTE4VDIyOjU2OjEzWiIsIm1ldGFkYXRhIjp7IkF0aGxldGUgTmFt
+        ZSI6IkthaXRseW4gRmFycmluZ3RvbiwgTmljayBNYXJ0aW5pLCBNaWtlIFJp
+        ZGRsZSwgVG9tIFdhbGxpc2NoIiwiQWN0aXZpdHkiOiJTa2lpbmcsIFNub3di
+        b2FyZGluZyIsInNob3J0IHRpdGxlIjoiSW50cm9kdWNpbmcgS2FpdGx5biwg
+        TmljaywgTWlrZSAmIFRvbSIsIkJyYW5kIjoiVGhlIE5vcnRoIEZhY2UifX0=
+    http_version: !binary |-
+      MS4x
+  recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
 recorded_with: VCR 2.3.0

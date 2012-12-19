@@ -1,24 +1,20 @@
 require 'spec_helper'
 
 describe Tangerine::Video do
-  authenticate!
 
   context 'class methods' do
     subject { Tangerine::Video }
     let(:embed_codes) { ['I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK','Z3Y3l3MTqHOLU6LMeTNbP2O91Oq5ADxm'] }
 
-    let(:title1) { 'snowboarding' }
-    let(:title2) { 'batmitten' }
-    let(:vcr_erb) { {:title1 => title1, :title2 => title2} }
-    before do
-      pause_vcr "query/embed_code", vcr_erb
-    end
+    let(:name) { 'Introducing Kaitlyn Farrington' }
+
+    before { pause_vcr "query/embed_code" }
     after { play_vcr }
 
 
     describe '.all' do
 
-      let(:params) { {'contentType' => 'Video'} }
+      let(:params) { {"include"=>"metadata,labels", "status"=>"'live'", "limit"=>400, "where"=>"asset_type='video'"} }
 
       it 'returns the response of the query' do
          Tangerine.should_receive(:query).with(params).and_return( stub.as_null_object )
@@ -27,15 +23,13 @@ describe Tangerine::Video do
 
     end
 
-    describe '.where' do
+    describe '.find' do
 
       subject { Tangerine::Video }
 
       it 'returns the appropriate videos' do
-        videos = subject.where(:embed_code => embed_codes)
-        videos.length.should == 2
-        videos.first.title.should == title1
-        videos[1].title.should == title2
+        video = subject.find(embed_codes.first)
+        video.name.should =~ /#{name}/
       end
     end
 
@@ -44,12 +38,12 @@ describe Tangerine::Video do
       let(:options) do
         {"flightStartTime"=>"1291860167",
          "size"=>"146499024",
-         "title"=>"snowboarding",
+         "name"=>"snowboarding",
          "updatedAt"=>"1294868672",
-         "thumbnail"=>"http://cdn.videos.thenorthface.com/I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK/M_-lZjo5g2zgfr_H5hMDoxOjA0O88asB",
+         "preview_image_url"=>"http://cdn.videos.thenorthface.com/I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK/M_-lZjo5g2zgfr_H5hMDoxOjA0O88asB",
          "metadata"=> {
-          "metadataItem"=>[{"name"=>"subtitle", "value"=>"Athlete"},
-                           {"name"=>"bigmeta", "value"=>"BigMeta!"}]},
+          "metadataItem"=>[{"name"=>"subtitle", "value"=>"Athlete"}, {"name"=>"bigmeta", "value"=>"BigMeta!"}],
+         },
          "height"=>"720",
          "embedCode"=>"I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK",
          "description"=>"TNF New Team Bio",
@@ -63,15 +57,19 @@ describe Tangerine::Video do
 
       subject { Tangerine::Video.new(options) }
       it 'sets metadata on Video' do
-        subject.metadata.should == {:subtitle => 'Athlete', :bigmeta => 'BigMeta!'}
+        subject.metadata.should == {:metadataitem=>[{"name"=>"subtitle", "value"=>"Athlete"}, {"name"=>"bigmeta", "value"=>"BigMeta!"}] }
       end
 
       it 'sets labels on Video' do
-        subject.labels.should == ['/YouTube']
+        subject.labels.should == { "label" => "/YouTube" }
       end
+    end
 
+    describe '.asset_type' do
+      it 'returns the correct asset type' do
+        Tangerine::Video.asset_type.should == 'video'
+      end
     end
   end
-
 end
 

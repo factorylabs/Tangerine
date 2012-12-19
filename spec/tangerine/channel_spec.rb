@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Tangerine::Channel do
-  authenticate!
-
   context 'retrieving videos associated with a channel' do
 
     describe '#videos' do
@@ -11,37 +9,42 @@ describe Tangerine::Channel do
       end
 
       let(:channel) do
-        Factory.build(:channel, :embed_code => '9haTdiMjoVHPey7H15JCroS9tJ25Xzw2')
+        FactoryGirl.build(:channel, :embed_code => 'kzbjhmMjrcPl5qxTxTiJkgWno_4GbyJE')
       end
 
       let(:videos) do
         [
-          FactoryGirl.build(:video, :embed_code => embed_codes.first, :title => title),
+          FactoryGirl.build(:video, :embed_code => embed_codes.first, :name => name),
           FactoryGirl.build(:video, :embed_code => embed_codes[1])
         ]
       end
 
       let(:embed_codes) { ['I3MHB2MTqP5zvA8dYvzbvGlPJdg7DxRK','Z3Y3l3MTqHOLU6LMeTNbP2O91Oq5ADxm'] }
-      let(:title) { 'Awesomest Skiiing video' }
-      let(:vcr_erb) { {:title => title} }
+      let(:name) { "Return to Meru Trailer" }
 
       before do
         Tangerine::Video.stub(:where).with(:embed_code => embed_codes).and_return(videos)
         channel_set.stub(:channels).and_return([channel])
-        pause_vcr "channels/list", vcr_erb
+        pause_vcr "channels/list"
       end
       after { play_vcr }
       subject { channel }
 
       it 'returns a list of videos belonging to the channel' do
-        subject.videos.first.title.should == title
+        subject.videos.first.name.should =~ /#{name}/
+      end
+    end
+
+    describe '.asset_type' do
+      it 'returns the correct asset type' do
+        Tangerine::Channel.asset_type.should == 'channel'
+      end
+    end
+
+    describe '#child_lass' do
+      it 'returns the correct child class name' do
+        build(:channel).child_class.should == Tangerine::Video
       end
     end
   end
-
 end
-
-# channel_set = Tangerine::ChannelSet.find(blah)
-# first_channel = channel_set.channels.first
-# videos = first_channel.videos
-

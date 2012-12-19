@@ -4,25 +4,20 @@ module Tangerine
   module HTTP
     describe Request do
 
-      describe '.get' do
+      describe '.perform!' do
         subject { Request }
 
-        let(:fake_request_object) { double(perform_request: 'response' ) }
+        let(:fake_request_object) { double(perform!: 'response' ) }
         let(:params) { { name: 'Billy' } }
-
-        it 'instantiates a new instance' do
-          subject.should_receive(:new).with(params).and_return(fake_request_object)
-          subject.get(params)
-        end
 
         it 'returns the response of its instance' do
           subject.stub(:new).with(params).and_return(fake_request_object)
-          subject.get(params).should == 'response'
+          subject.perform!(params).should == 'response'
         end
 
       end
 
-      describe '#perform_request' do
+      describe '#perform!' do
         let(:fake_url) { 'http://www.example.com' }
         let(:fake_response) { "{lorem: 'ipsum'}" }
         let(:fake_parsed_response) { fake_response.to_json }
@@ -41,12 +36,12 @@ module Tangerine
 
         it 'parses the response' do
           fake_responder.should_receive(:parse).with(fake_response)
-          subject.perform_request
+          subject.perform!
         end
 
         it 'returns the parsed response' do
           fake_responder.stub(:parse).with(fake_response).and_return(fake_parsed_response)
-          subject.perform_request.should == fake_parsed_response
+          subject.perform!.should == fake_parsed_response
         end
 
       end

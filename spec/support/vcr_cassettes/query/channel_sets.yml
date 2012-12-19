@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.ooyala.com/v2/assets?where=asset_type%3D%27channel_set%27&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&expires=1641056500&signature=WthSoxNnk9toqLuBVhXTusFkNmZvu4CmjqBBU86AeIg
+    uri: http://api.ooyala.com/v2/assets?include=metadata%2Clabels&status=%27live%27&limit=400&where=asset_type%3D%27channel_set%27&expires=1641056410&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&signature=p8crNVVdMk46H7i%2BZh9nUZJe6HYlGuziZZY8t87miFE
     body:
       encoding: US-ASCII
       string: ''
@@ -22,25 +22,81 @@ http_interactions:
       content-type:
       - application/json
       ooyala-server-id:
-      - i-83b257fb,i-74e0a20c
+      - i-8680e0fc,i-74e0a20c
       cache-control:
       - no-cache
       x-ratelimit-credits:
-      - '288'
+      - '285'
       x-ratelimit-reset:
       - '60'
       ooyala-request-id:
-      - e77d6678321c137c394dc7f7bdb8a5be
+      - 43d0313808baa95005723bbb1a86cb2d
       x-varnish-ip:
       - 10.251.243.175
       content-length:
-      - '1251'
+      - '1329'
       accept-ranges:
       - bytes
       date:
-      - Fri, 07 Dec 2012 21:04:09 GMT
+      - Wed, 19 Dec 2012 21:58:54 GMT
       x-varnish:
-      - '422387622'
+      - 469002172 469001004
+      via:
+      - 1.1 varnish
+      connection:
+      - close
+      age:
+      - '0'
+      x-varnish-cache:
+      - HIT
+    body:
+      encoding: US-ASCII
+      string: ! '{"items":[{"status":"live","external_id":null,"hosted_at":null,"description":null,"ad_set_id":null,"time_restrictions":null,"asset_type":"channel_set","embed_code":"M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU","original_file_name":null,"preview_image_url":null,"duration":0,"created_at":"2011-04-29T16:05:35Z","labels":[],"name":"Expeditions
+        Channel Set","publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-29T16:53:50Z","metadata":{}},{"status":"live","external_id":null,"hosted_at":null,"description":null,"ad_set_id":null,"time_restrictions":null,"asset_type":"channel_set","embed_code":"9zYmRjMjo9gKl9ZM8wvKlaJxdKm24qZR","original_file_name":null,"preview_image_url":null,"duration":0,"created_at":"2011-03-28T17:42:52Z","labels":[],"name":"BrandSite-Testing","publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-19T17:49:26Z","metadata":{}},{"status":"live","external_id":null,"hosted_at":null,"description":null,"ad_set_id":null,"time_restrictions":null,"asset_type":"channel_set","embed_code":"85aTdiMjoYR5K26Fp8TMgGtGQUCEC2Y1","original_file_name":null,"preview_image_url":null,"duration":0,"created_at":"2011-03-08T16:54:22Z","labels":[],"name":"Brand
+        Site Video Gallery","publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-05-02T19:00:15Z","metadata":{}}]}'
+    http_version: '1.1'
+  recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
+- request:
+    method: get
+    uri: http://api.ooyala.com/v2/assets/M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU?include=metadata%2Clabels&status=%27live%27&limit=400&expires=1641056410&api_key=UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY&signature=1irKvutWWQpc1wH%2Fm2P8zxX0q4xyLmpUT4pUEnZ1kUw
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - ! '*/*'
+      user-agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      status:
+      - 200 OK
+      - 200 OK
+      content-type:
+      - application/json
+      ooyala-server-id:
+      - i-1e80e064,i-90e3a1e8
+      cache-control:
+      - no-cache
+      x-ratelimit-credits:
+      - '255'
+      x-ratelimit-reset:
+      - '60'
+      ooyala-request-id:
+      - b3043b704122274d7c99013fc09a2429
+      x-varnish-ip:
+      - 10.251.243.175
+      content-length:
+      - '440'
+      accept-ranges:
+      - bytes
+      date:
+      - Wed, 19 Dec 2012 21:58:54 GMT
+      x-varnish:
+      - '469002180'
       via:
       - 1.1 varnish
       connection:
@@ -51,9 +107,8 @@ http_interactions:
       - MISS
     body:
       encoding: US-ASCII
-      string: ! '{"items":[{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU","original_file_name":null,"duration":0,"created_at":"2011-04-29T16:05:35Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-29T16:53:50Z","name":"Expeditions
-        Channel Set","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"9zYmRjMjo9gKl9ZM8wvKlaJxdKm24qZR","original_file_name":null,"duration":0,"created_at":"2011-03-28T17:42:52Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-19T17:49:26Z","name":"BrandSite-Testing","external_id":null},{"ad_set_id":null,"status":"live","time_restrictions":null,"description":null,"asset_type":"channel_set","hosted_at":null,"embed_code":"85aTdiMjoYR5K26Fp8TMgGtGQUCEC2Y1","original_file_name":null,"duration":0,"created_at":"2011-03-08T16:54:22Z","preview_image_url":null,"publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-05-02T19:00:15Z","name":"Brand
-        Site Video Gallery","external_id":null}]}'
+      string: ! '{"status":"live","external_id":null,"hosted_at":null,"description":null,"ad_set_id":null,"time_restrictions":null,"asset_type":"channel_set","embed_code":"M2bDhmMjo-ZrIlkGNNh1YAo168-EsFCU","original_file_name":null,"preview_image_url":null,"duration":0,"created_at":"2011-04-29T16:05:35Z","labels":[],"name":"Expeditions
+        Channel Set","publishing_rule_id":"cf5237900bdd40038cdb2f3fa9770562","updated_at":"2011-04-29T16:53:50Z","metadata":{}}'
     http_version: '1.1'
   recorded_at: Sat, 01 Jan 2022 17:00:00 GMT
 recorded_with: VCR 2.3.0

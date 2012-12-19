@@ -6,11 +6,12 @@ describe Tangerine::Base do
     subject { Tangerine::Base }
 
     describe '.find' do
-      let(:target_item) { {'embed_code' => embed_code} }
+      let(:request_path) { "/v2/assets/#{embed_code}" }
+      let(:default_params) { Tangerine::Base.default_params }
 
       before do
         TestBaseClass = Class.new(Tangerine::Base)
-        TestBaseClass.stub(:query_for).with(embed_code).and_return(target_item)
+        Tangerine::Backlot::API.stub(:get).with(request_path, default_params).and_return('result')
       end
       after { Object.send(:remove_const, :TestBaseClass) }
 
@@ -18,32 +19,20 @@ describe Tangerine::Base do
       let(:mock_item) { {'embed_code' => generate(:embed_code)} }
 
       it 'initiates an object associated with the given embed code' do
-        TestBaseClass.should_receive(:new).with(target_item)
+        TestBaseClass.should_receive(:new).with('result')
         TestBaseClass.find(embed_code)
       end
 
       it 'returns an object associated with the given embed code' do
         fake_tangerine_object = stub
 
-        TestBaseClass.stub(:new).with(target_item).and_return(fake_tangerine_object)
+        TestBaseClass.stub(:new).with('result').and_return(fake_tangerine_object)
         TestBaseClass.find(embed_code).should == fake_tangerine_object
       end
 
     end
 
-    describe '.query_all' do
-      it 'raises an error' do
-        expect { subject.query_all }.to raise_error(/Implement/)
-      end
-    end
-
-    describe '.query_for' do
-      it 'issues an API call with the given embed code' do
-        embed_code = '123456'
-        full_path = "/v2/assets/#{embed_code}"
-        Tangerine::Backlot::API.should_receive(:get).with(full_path)
-        subject.query_for(embed_code)
-      end
+    describe '.all' do
     end
 
   end
