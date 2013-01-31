@@ -6,7 +6,7 @@ class Tangerine::Channel < Tangerine::Base
     :updated_at,
     :embed_code,
     :description,
-    :length,
+    :duration,
     :status,
     :uploaded_at
 
@@ -33,7 +33,7 @@ class Tangerine::Channel < Tangerine::Base
      :updated_at => updated_at,
      :embed_code => embed_code,
      :description => description,
-     :length => length,
+     :duration => duration,
      :status => status,
      :uploaded_at => uploaded_at,
      :videos => vids

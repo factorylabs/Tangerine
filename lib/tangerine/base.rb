@@ -30,6 +30,14 @@ class Tangerine::Base
     Tangerine::Lineup.children_for(self)
   end
 
+  def length
+    duration
+  end
+
+  def length=(value)
+    self.duration = value
+  end
+
   def title
     warn "#{self.class.name} `#{__method__}` is deprecated.  Please use `name` instead."
     name

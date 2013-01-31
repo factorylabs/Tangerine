@@ -1,4 +1,3 @@
-require 'pry'
 require 'json'
 require 'base64'
 require 'digest/sha2'
