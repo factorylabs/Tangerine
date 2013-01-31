@@ -25,7 +25,11 @@ RSpec.configure do |config|
 
     unless example.metadata[:unauthenticated]
       # Publicly-available Ooyala Provider account creds for testing purposes
-      credentials = {:api_key => 'lsNTrbQBqCQbH-VA6ALCshAHLWrV', :secret => 'hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1'}
+      # credentials = {:api_key => 'lsNTrbQBqCQbH-VA6ALCshAHLWrV', :secret => 'hn-Rw2ZH-YwllUYkklL5Zo_7lWJVkrbShZPb5CD1'}
+      credentials = {
+        secret: 'hujlbGtw8o8Hq2FJGNaCNQOWDl3tVAyJjqqhm-mV',
+        api_key: 'UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY'
+      }
       Tangerine::Backlot::API.authenticate! credentials
     end
   end
