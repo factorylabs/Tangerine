@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   # Runtime Dependencies
-  gem.add_dependency "activesupport", "~> 3.0.19"
+  gem.add_dependency "activesupport", "~> 3.2.13"
   gem.add_dependency "json"
   gem.add_dependency "i18n"
 
