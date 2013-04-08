@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tangerine (0.7.4)
+    tangerine (0.8.0.rc1)
       activesupport (~> 3.2.13)
       i18n
       json
