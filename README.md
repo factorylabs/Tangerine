@@ -12,19 +12,34 @@ Tangerine is a gem that uses ActiveResource to wrap the Ooyala API. Currently in
 
 The following is only a proposed usage -- most of this is not yet implemented since the gem is still in development:
 
-### Authorization with your Ooyala Account
+### Authentication
 
 You can find your Partner and Secret codes under the Developers area of the Backlot Account tab.
 
-  OOYALA_CREDENTIALS = {
-      :pcode => **<YOUR PCODE HERE>**,
-      :signature => **<YOUR SIGNATURE HERE>**
-    }
-  tangerine_client = Tangerine::Backlot.new(OOYALA_CREDENTIALS)
+	Tangerine::Backlot::API.authenticate!({
+		:api_key => 'API_KEY',
+		:secret => 'SECRET_KEY'
+	})
 
-### Queries
+### Querying Assets
 
-  tangerine_client.query(:status => 'live')
+To access the `/v2/assets` endpoint and supply your own parameters:
+
+	Tangerine.query({
+		'limit' => 2
+	})
+	
+Or, ask for specific asset types and have Tangerine domain models returned.
+
+	Tangerine::Video.all
+	[#<Tangerine::Video:0x007f999e0e2f38, ...]
+
+	Tangerine::Channel.all
+	[#<Tangerine::ChannelSet:0x007f99999f94f0, ...]
+
+	Tangerine::ChannelSet.all
+	[#<Tangerine::Channel:0x007f99999f94f0, ...]
+	
 
 ## Contribute
 
