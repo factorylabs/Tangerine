@@ -23,11 +23,13 @@ You can find your Partner and Secret codes under the Developers area of the Back
 
 ### Querying Assets
 
-To access the `/v2/assets` endpoint and supply your own parameters:
+You can access the `/v2/assets` endpoint, supply your own params and have a JSON hash returned:
 
 	Tangerine.query({
-		'limit' => 2
+		'limit' => 16,
+		'where' => "asset_type='video' AND created_at>'2013-05-20T10:30:09-06:00'"
 	})
+
 	
 Or, ask for specific asset types and have Tangerine domain models returned.
 
