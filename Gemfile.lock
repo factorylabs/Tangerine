@@ -49,8 +49,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     slop (3.3.3)
-    timecop (0.5.4)
-    vcr (2.3.0)
+    vcr (2.5.0)
     yard (0.8.3)
 
 PLATFORMS
@@ -65,6 +64,5 @@ DEPENDENCIES
   rspec
   ruby-debug19
   tangerine!
-  timecop
   vcr
   yard
