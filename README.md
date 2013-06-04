@@ -30,6 +30,8 @@ You can access the `/v2/assets` endpoint, supply your own params and have a JSON
 		'where' => "asset_type='video' AND created_at>'2013-05-20T10:30:09-06:00'"
 	})
 
+
+> Checkout [Ooyala's Querying API Documentation](http://support.ooyala.com/developers/documentation/api/query.html) for more information.
 	
 Or, ask for specific asset types and have Tangerine domain models returned.
 
@@ -41,7 +43,7 @@ Or, ask for specific asset types and have Tangerine domain models returned.
 
 	Tangerine::ChannelSet.all
 	[#<Tangerine::Channel:0x007f99999f94f0, ...]
-	
+
 
 ## Contribute
 
