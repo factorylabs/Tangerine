@@ -29,8 +29,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "vcr"
   gem.add_development_dependency "fakeweb"
   gem.add_development_dependency "factory_girl"
-  gem.add_development_dependency "ruby-debug19"
-  gem.add_development_dependency "pry"
   gem.add_development_dependency "rake"
 end
 

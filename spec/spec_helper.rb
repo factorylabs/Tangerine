@@ -5,7 +5,6 @@ require 'rspec'
 require 'factory_girl'
 require 'vcr'
 require 'tangerine'
-require 'pry'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
