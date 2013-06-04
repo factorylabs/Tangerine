@@ -6,8 +6,8 @@ require 'tangerine/version'
 Gem::Specification.new do |gem|
   gem.name          = "tangerine"
   gem.version       = Tangerine::VERSION
-  gem.authors       = ["Anthony Navarre", "Craig Williams"]
-  gem.email         = ["me@anthonynavarre.com", "cwilliams.allancraig@gmail.com"]
+  gem.authors       = ["Anthony Navarre", "Craig Williams", "Ken Seal", "Mike Pack"]
+  gem.email         = ["me@anthonynavarre.com", "cwilliams.allancraig@gmail.com", "hunzinker@gmail.com", "mikepackdev@gmail.com"]
   gem.description   = %q{Ooyala Backlot API Wrapper. Read more about the Ooyala Backlot API at http://www.ooyala.com/support/docs/backlot_api}
   gem.summary       = %q{Ooyala Backlot API Wrapper.}
   gem.homepage      = "http://github.com/factorylabs/tangerine"
