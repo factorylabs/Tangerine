@@ -12,7 +12,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/support/vcr_cassettes'
-  c.hook_into :fakeweb
+  c.hook_into :webmock
 end
 
 RSpec.configure do |config|
