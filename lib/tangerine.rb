@@ -28,15 +28,3 @@ require_relative 'tangerine/channel_set'
 require_relative 'tangerine/video'
 require_relative 'tangerine/lineup'
 
-# require '/Users/craig.williams/Documents/Factory/Tangerine/lib/tangerine'
-# credentials = {
-  # :secret => 'hujlbGtw8o8Hq2FJGNaCNQOWDl3tVAyJjqqhm-mV',
-  # :api_key => 'UzbGs6FeXKl3FztSNitFglJAdblv.Tg3cY'
-# }
-# Tangerine::Backlot::API.authenticate! credentials
-# channel_set = Tangerine::ChannelSet.find('9zYmRjMjo9gKl9ZM8wvKlaJxdKm24qZR')
-# channel_set.channels
-# channel = _.first
-# videos = channel.videos
-# videos.count
-
