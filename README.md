@@ -2,6 +2,8 @@
 
 Tangerine is a gem that uses ActiveResource to wrap the Ooyala API. Currently in its infancy, so YMMV.
 
+[ ![Codeship Status for factorylabs/Tangerine](https://www.codeship.io/projects/49dd6d50-af87-0130-b26f-7a97a098c4e6/status?branch=master)](https://www.codeship.io/projects/4026)
+
 ## Installation
 
   gem install tangerine
