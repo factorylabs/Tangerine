@@ -1,3 +1,11 @@
+require 'vcr'
+
+VCR.configure do |config|
+  config.hook_into :webmock
+  config.cassette_library_dir = 'spec/support/vcr_cassettes'
+  config.configure_rspec_metadata!
+end
+
 def pause_vcr(cassette_name=nil, erb=false)
   VCR.insert_cassette cassette_name,
     :erb => erb,
