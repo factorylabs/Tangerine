@@ -1,4 +1,5 @@
 require 'vcr'
+require_relative 'configuration_variables'
 
 VCR.configure do |config|
   config.hook_into :webmock
