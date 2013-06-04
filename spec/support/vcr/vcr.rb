@@ -2,7 +2,7 @@ require 'vcr'
 
 VCR.configure do |config|
   config.hook_into :webmock
-  config.cassette_library_dir = 'spec/support/vcr_cassettes'
+  config.cassette_library_dir = VCR_CASSETTE_LIBRARY_DIR
   config.configure_rspec_metadata!
 end
 
